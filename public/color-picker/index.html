@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tintwell — Color Picker</title>
+  <meta name="description" content="Mix any color with RGB and HSL sliders, copy HEX, RGB and HSL values, and build harmony schemes. A responsive vanilla HTML/CSS/JS color studio.">
+  <meta property="og:title" content="Tintwell — Color Picker">
+  <meta property="og:description" content="Pick a hue, watch it live. A designer's micro-tool for tints, harmonies and saved trays.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="picker">
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html"><span class="logo-mark"><i></i></span>Tintwell</a>
+      <nav class="nav" aria-label="Main">
+        <a class="active" href="index.html" aria-current="page">Picker</a>
+        <a href="harmony.html">Harmonies</a>
+        <a href="palettes.html">Palettes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <p class="hero-kicker">Live mix · <b id="heroHex">#0F9D8F</b></p>
+          <h1><span>Pick a hue, watch it live.</span></h1>
+          <p>A designer's micro-tool for tints, harmonies and saved trays. Every value is copy-ready.</p>
+        </div>
+        <a class="btn btn-accent" href="#workspace"><span class="btn-dot"></span>Open the tin</a>
+      </div>
+    </section>
+
+    <!-- Workspace -->
+    <section class="workspace" id="workspace">
+
+      <!-- Live preview panel -->
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Live preview</h2>
+          <span class="hint">click swatch to copy</span>
+        </div>
+        <div class="swatch" id="swatch" title="Click to copy the HEX value" role="button" tabindex="0" aria-label="Current color, click to copy">
+          <span id="swatchHex">#0F9D8F</span>
+        </div>
+        <div class="chips">
+          <div class="chip">
+            <span class="chip-label">HEX</span>
+            <button class="chip-btn" id="copyHex" type="button"><span id="chipHex">#0F9D8F</span><em>copy</em></button>
+          </div>
+          <div class="chip">
+            <span class="chip-label">RGB</span>
+            <button class="chip-btn" id="copyRgb" type="button"><span id="chipRgb">15, 157, 143</span><em>copy</em></button>
+          </div>
+          <div class="chip">
+            <span class="chip-label">HSL</span>
+            <button class="chip-btn" id="copyHsl" type="button"><span id="chipHsl">175, 86%, 34%</span><em>copy</em></button>
+          </div>
+        </div>
+        <div class="wheel-row">
+          <input type="color" class="wheel" id="wheel" value="#0f9d8f" aria-label="Pick any color with the system wheel">
+          <input type="text" class="hex-input" id="hexInput" value="#0F9D8F" maxlength="7" spellcheck="false" aria-label="Type a HEX value">
+          <span class="hint">type a hex or use the wheel</span>
+        </div>
+      </div>
+
+      <!-- Sliders panel -->
+      <div class="panel">
+        <h2 class="panel-title">RGB sliders</h2>
+
+        <div class="slider-group">
+          <div class="slider-head"><span class="tag-r">R</span><span id="vR">15</span></div>
+          <input type="range" id="r" min="0" max="255" value="15" aria-label="Red channel">
+        </div>
+        <div class="slider-group">
+          <div class="slider-head"><span class="tag-g">G</span><span id="vG">157</span></div>
+          <input type="range" id="g" min="0" max="255" value="157" aria-label="Green channel">
+        </div>
+        <div class="slider-group">
+          <div class="slider-head"><span class="tag-b">B</span><span id="vB">143</span></div>
+          <input type="range" id="b" min="0" max="255" value="143" aria-label="Blue channel">
+        </div>
+
+        <h2 class="subhead">HSL sliders</h2>
+        <div class="slider-group">
+          <div class="slider-head"><span class="tag-h">Hue</span><span id="vH">175</span></div>
+          <input type="range" id="hue" min="0" max="360" value="175" aria-label="Hue">
+        </div>
+        <div class="slider-group">
+          <div class="slider-head"><span class="tag-s">Saturation</span><span id="vS">86</span></div>
+          <input type="range" id="sat" min="0" max="100" value="86" aria-label="Saturation">
+        </div>
+        <div class="slider-group">
+          <div class="slider-head"><span class="tag-l">Lightness</span><span id="vL">34</span></div>
+          <input type="range" id="light" min="0" max="100" value="34" aria-label="Lightness">
+        </div>
+
+        <p class="note">drag to repaint the preview in real time</p>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><p>Tintwell · a client-side paint tray · no account, no cloud</p></div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
