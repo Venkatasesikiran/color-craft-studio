@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tintwell — Saved Palettes</title>
+  <meta name="description" content="Your library of saved color palettes. Restore a tray back into the picker or delete it — everything stays in your browser.">
+  <meta property="og:title" content="Tintwell — Saved Palettes">
+  <meta property="og:description" content="Your saved trays. Restore a tray to load its lead color back into the picker.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="palettes">
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="logo" href="index.html"><span class="logo-mark"><i></i></span>Tintwell</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Picker</a>
+        <a href="harmony.html">Harmonies</a>
+        <a class="active" href="palettes.html" aria-current="page">Palettes</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- Hero -->
+    <section class="hero hero-sm">
+      <div class="hero-inner">
+        <div>
+          <p class="hero-kicker">Saved trays · <b id="palCount">3 saved</b></p>
+          <h1><span>Your saved trays.</span></h1>
+          <p>Everything lives in this browser. Restore a tray to load its lead color back into the picker.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Library -->
+    <section class="panel" style="margin-top: 1.5rem;">
+      <div class="panel-head">
+        <h2>Saved palettes</h2>
+        <button class="btn btn-ghost danger" id="clearAll" type="button">clear all</button>
+      </div>
+      <div class="pal-grid" id="paletteGrid"></div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap"><p>Tintwell · a client-side paint tray · no account, no cloud</p></div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

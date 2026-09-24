@@ -186,7 +186,6 @@
 
     function currentHex() { return rgbToHex(state.r, state.g, state.b); }
     function currentRgbText() { return state.r + ', ' + state.g + ', ' + state.b; }
-    function currentHslText() { return state.h + '%, ' ... } /* replaced below */
 
     function render() {
       const hex = currentHex();
