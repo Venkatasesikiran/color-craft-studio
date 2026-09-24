@@ -1,24 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+/**
+ * The color picker app is plain HTML/CSS/JS served from
+ * /color-picker/index.html — send visitors there from the root.
+ */
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Tintwell — Color Picker" },
+      { name: "description", content: "A responsive color picker, harmony generator and palette library." },
+      { httpEquiv: "refresh", content: "0; url=/color-picker/index.html" },
+    ],
+  }),
+  component: RootRedirect,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function RootRedirect() {
+  useEffect(() => {
+    window.location.replace("/color-picker/index.html");
+  }, []);
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="flex min-h-screen items-center justify-center">
+      <a href="/color-picker/index.html" className="text-sm underline">
+        Open Tintwell →
+      </a>
     </div>
   );
 }
